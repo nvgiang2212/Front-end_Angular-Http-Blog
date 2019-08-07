@@ -1,4 +1,4 @@
-<div *ngIf="post; else nothing">
+<div *ngIf="post; else nothing" style="text-align: center">
   <h4>
     {{post.title}}
   </h4>
@@ -7,6 +7,6 @@
   </p>
 </div>
 
-<ng-template #nothing>
+<ng-template #nothing style="text-align: center">
   <p>Nothing to show</p>
 </ng-template>

@@ -1,9 +1,9 @@
 <h2>Simple Blog</h2>
 
-<form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()" style="text-align: center">
   <div>
     <label>
-      Title
+      Title :
       <br>
       <input type="text" formControlName="title">
     </label>
@@ -13,9 +13,9 @@
   </div>
   <div>
     <label>
-      body
+      Content :
       <br>
-      <textarea formControlName="body" cols="30" rows="10"></textarea>
+      <textarea formControlName="body" cols="80" rows="7"></textarea>
     </label>
   </div>
   <div *ngIf="postForm.get('body').invalid && postForm.get('body').touched" style="color: red">
@@ -24,14 +24,14 @@
   <button type="submit">Submit</button>
 </form>
 
-<ul>
+<ul style="margin-left: 250px">
   <li *ngFor="let post of postList; index as i">
     <h3>
       <a [routerLink]="['/blog', post.id]">
         Post Id: {{post.id}} - {{post.title}}
       </a>
     </h3>
-    <a [routerLink]="['/blog', post.id, 'edit']">Edit</a>
+    <a [routerLink]="['/blog', post.id, 'edit']"><button>Edit</button></a>
 
     <button (click)="deletePost(i)">Delete</button>
   </li>
